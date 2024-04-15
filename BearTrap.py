@@ -54,6 +54,9 @@ def honey_text():
 def honey_word():
     pass
 
+def run():
+    pass
+
 def menu():
     print(r"""Welcome to BearTrap, a Windows honeyfile generator and distributor. Please select the option you wish to edit.
 [1] IP address(s)
