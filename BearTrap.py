@@ -33,7 +33,7 @@ def menu():
 [1] IP address(s)
 [2] Hostname(s)
 [3] Review options
-          """)
+""")
     INPUT_CLASS = Inputs()
     userInput = input('Your Selection: ')
     if userInput == '1':
