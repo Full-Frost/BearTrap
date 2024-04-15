@@ -10,7 +10,7 @@ ______               _____
                                   |_|    
 """)
 
-class Inputs:
+class Inputs_class:
     def __init__(self) -> None:
         self.ipaddress = []
         self.hostname = []
@@ -35,11 +35,17 @@ class Inputs:
         print('Filename List: ' + self.filenames)
         print('File Extension List: ' + self.fileextension)
 
-def hostfile_edit():
+def hostfile_edit(hosts_lists: list):
     DEFAULT = '172.0.0.1 DC01.contoso.org'
     HOSTS = os.path.join('C:', 'Windows', 'System32', 'Drivers', 'etc', 'hosts')
     hostfile = open(HOSTS, 'a')
-    hostfile.write(DEFAULT)
+    if len(hosts_lists) > 0:
+        print('Adding the following hosts into the hosts file: ')
+        for host in hosts_lists:
+            hostfile.write(host)
+            print(host)
+    else:
+        hostfile.write(DEFAULT)
     hostfile.close()
 
 def honey_pdf():
@@ -66,7 +72,7 @@ def menu():
 [5] Review options
 [6] Run
 """)
-    INPUT_CLASS = Inputs()
+    INPUT_CLASS = Inputs_class()
     while(True):
         userInput = input('Your Selection: ')
         if userInput == '1':
