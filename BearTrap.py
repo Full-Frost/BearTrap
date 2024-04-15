@@ -20,6 +20,10 @@ class Inputs:
     
     def add_hostname(self, host):
         self.hostname.append(host)
+    
+    def viewInput(self):
+        print('IP Address List: ' + self.ipaddress)
+        print('Hostname List: ' + self.hostname)
 
 def hostfile_edit():
     DEFAULT = '172.0.0.1 DC01.contoso.org'
@@ -33,17 +37,21 @@ def menu():
 [1] IP address(s)
 [2] Hostname(s)
 [3] Review options
+[4] Run
 """)
     INPUT_CLASS = Inputs()
-    userInput = input('Your Selection: ')
-    if userInput == '1':
-        addressInput = input('Please enter an IP address for use: ')
-        INPUT_CLASS.add_ip(addressInput)
-    elif userInput == '2':
-        hostnameInput = input('Please enter a hostname for use: ')
-        INPUT_CLASS.add_hostname(hostnameInput)
-    elif userInput == '3':
-        pass
+    while(True):
+        userInput = input('Your Selection: ')
+        if userInput == '1':
+            addressInput = input('Please enter an IP address for use: ')
+            INPUT_CLASS.add_ip(addressInput)
+        elif userInput == '2':
+            hostnameInput = input('Please enter a hostname for use: ')
+            INPUT_CLASS.add_hostname(hostnameInput)
+        elif userInput == '3':
+            INPUT_CLASS.viewInput()
+        elif userInput == '4':
+            break
     
 def main():
     menu()
