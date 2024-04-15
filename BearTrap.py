@@ -42,6 +42,18 @@ def hostfile_edit():
     hostfile.write(DEFAULT)
     hostfile.close()
 
+def honey_pdf():
+    pass
+
+def honey_excel():
+    pass
+
+def honey_text():
+    pass
+
+def honey_word():
+    pass
+
 def menu():
     print(r"""Welcome to BearTrap, a Windows honeyfile generator and distributor. Please select the option you wish to edit.
 [1] IP address(s)
