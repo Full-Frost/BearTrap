@@ -14,6 +14,8 @@ class Inputs:
     def __init__(self) -> None:
         self.ipaddress = []
         self.hostname = []
+        self.filenames = []
+        self.fileextension = []
     
     def add_ip(self, IP):
         self.ipaddress.append(IP)
@@ -21,9 +23,17 @@ class Inputs:
     def add_hostname(self, host):
         self.hostname.append(host)
     
+    def add_filename(self, filename):
+        self.filenames.append(filename)
+    
+    def add_fileextension(self, fileextension):
+        self.fileextension.append(fileextension)
+    
     def viewInput(self):
         print('IP Address List: ' + self.ipaddress)
         print('Hostname List: ' + self.hostname)
+        print('Filename List: ' + self.filenames)
+        print('File Extension List: ' + self.fileextension)
 
 def hostfile_edit():
     DEFAULT = '172.0.0.1 DC01.contoso.org'
@@ -36,8 +46,10 @@ def menu():
     print(r"""Welcome to BearTrap, a Windows honeyfile generator and distributor. Please select the option you wish to edit.
 [1] IP address(s)
 [2] Hostname(s)
-[3] Review options
-[4] Run
+[3] Filename(s)
+[4] File Extension(s)
+[5] Review options
+[6] Run
 """)
     INPUT_CLASS = Inputs()
     while(True):
@@ -49,8 +61,14 @@ def menu():
             hostnameInput = input('Please enter a hostname for use: ')
             INPUT_CLASS.add_hostname(hostnameInput)
         elif userInput == '3':
-            INPUT_CLASS.viewInput()
+            filenameInput = input('Please enter a filename for use: ')
+            INPUT_CLASS.add_filename(filenameInput)
         elif userInput == '4':
+            fileextensionInput = input('Please enter a file extension for use: ')
+            INPUT_CLASS.add_fileextension(fileextensionInput)
+        elif userInput == '5':
+            INPUT_CLASS.viewInput()
+        elif userInput == '6':
             break
     
 def main():
