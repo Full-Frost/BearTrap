@@ -1,4 +1,5 @@
 import os
+import wmi
 print(r"""
 ______               _____               
 | ___ \             |_   _|              
@@ -16,6 +17,7 @@ class Inputs_class:
         self.hostname = []
         self.filenames = []
         self.fileextension = []
+        self.usernames = []
     
     def add_ip(self, IP):
         self.ipaddress.append(IP)
@@ -29,11 +31,15 @@ class Inputs_class:
     def add_fileextension(self, fileextension):
         self.fileextension.append(fileextension)
     
+    def add_usernames(self, username):
+        self.usernames.append(username)
+    
     def viewInput(self):
         print('IP Address List: ' + self.ipaddress)
         print('Hostname List: ' + self.hostname)
         print('Filename List: ' + self.filenames)
         print('File Extension List: ' + self.fileextension)
+        print('Username List: ' + self.usernames)
 
 def hostfile_edit(hosts_lists: list):
     DEFAULT = '172.0.0.1 DC01.contoso.org'
@@ -47,6 +53,15 @@ def hostfile_edit(hosts_lists: list):
     else:
         hostfile.write(DEFAULT)
     hostfile.close()
+
+def get_userList(username_list):
+    DEFAULT_USERS = ['Administrator', 'Guest', 'WDAGUtilityAccount', 'KRBTGT', 'DefaultAccount']
+    wmiObject = wmi.WMI()
+    for user in wmiObject.Win32_UserAccount(['Name']):
+        if user.Name in DEFAULT_USERS:
+            pass
+        else:
+            username_list.append(user.Name)
 
 def honey_pdf():
     pass
