@@ -1,5 +1,6 @@
 import os
 import wmi
+import random
 
 print(r"""
 ______               _____               
@@ -61,17 +62,37 @@ def get_userList():
             username_list.append(user.Name)
     return username_list
 
-def honey_pdf():
-    pass
+def honey_pdf(user_list:list):
+    DEFAULT_FILENAME = ['Q3 Financials 2023']
+    EXTENSION = '.pdf'
+    user = random.choice(user_list)
+    path = os.path.join('C:', 'Users', user, 'Documents', DEFAULT_FILENAME + EXTENSION)
+    file = open(path, 'a')
+    file.close()
 
-def honey_excel():
-    pass
+def honey_excel(user_list:list):
+    DEFAULT_FILENAME = ['Salary Information']
+    EXTENSION = '.xslx'
+    user = random.choice(user_list)
+    path = os.path.join('C:', 'Users', user, 'Documents', DEFAULT_FILENAME + EXTENSION)
+    file = open(path, 'a')
+    file.close()
 
-def honey_text():
-    pass
+def honey_text(user_list:list):
+    DEFAULT_FILENAME = ['passwords']
+    EXTENSION = '.txt'
+    user = random.choice(user_list)
+    path = os.path.join('C:', 'Users', user, 'Documents', DEFAULT_FILENAME + EXTENSION)
+    file = open(path, 'a')
+    file.close()
 
-def honey_word():
-    pass
+def honey_word(user_list:list):
+    DEFAULT_FILENAME = ['MSSP Contract 2022']
+    EXTENSION = '.docx'
+    user = random.choice(user_list)
+    path = os.path.join('C:', 'Users', user, 'Documents', DEFAULT_FILENAME + EXTENSION)
+    file = open(path, 'a')
+    file.close()
 
 def run():
     pass
@@ -104,7 +125,7 @@ def menu():
             INPUT_CLASS.viewInput()
         elif userInput == '6':
             break
-    
+
 def main():
     menu()
 
