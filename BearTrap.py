@@ -38,7 +38,7 @@ class Inputs_class:
         print('Filename List: ' + self.filenames)
         print('File Extension List: ' + self.fileextension)
 
-def hostfile_edit(hosts_lists: list):
+def hostfile_edit(hosts_lists:list, ip_list:list):
     DEFAULT = '172.0.0.1 DC01.contoso.org'
     HOSTS = os.path.join('C:', 'Windows', 'System32', 'Drivers', 'etc', 'hosts')
     hostfile = open(HOSTS, 'a')
@@ -98,8 +98,16 @@ def honey_word(user_list:list):
     file.close()
     print(path)
 
-def run():
-    pass
+def deploy_honey(user_list:list):
+    honey_pdf(user_list)
+    honey_excel(user_list)
+    honey_text(user_list)
+    honey_word(user_list)
+
+def run(hostname_list:list, ip_list:list):
+    user_list = get_userList()
+    deploy_honey(user_list)
+    hostfile_edit(hostname_list, ip_list)
 
 def menu():
     print(r"""Welcome to BearTrap, a Windows honeyfile generator and distributor. Please select the option you wish to edit.
@@ -128,7 +136,7 @@ def menu():
         elif userInput == '5':
             INPUT_CLASS.viewInput()
         elif userInput == '6':
-            break
+            run(INPUT_CLASS.hostname, INPUT_CLASS.ipaddress)
 
 def main():
     menu()
