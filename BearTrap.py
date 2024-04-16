@@ -1,5 +1,6 @@
 import os
 import wmi
+
 print(r"""
 ______               _____               
 | ___ \             |_   _|              
@@ -54,7 +55,7 @@ def hostfile_edit(hosts_lists: list):
         hostfile.write(DEFAULT)
     hostfile.close()
 
-def get_userList(username_list):
+def get_userList(username_list:list):
     DEFAULT_USERS = ['Administrator', 'Guest', 'WDAGUtilityAccount', 'KRBTGT', 'DefaultAccount']
     wmiObject = wmi.WMI()
     for user in wmiObject.Win32_UserAccount(['Name']):
