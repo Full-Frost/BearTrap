@@ -69,6 +69,7 @@ def honey_pdf(user_list:list):
     path = os.path.join('C:', 'Users', user, 'Documents', DEFAULT_FILENAME + EXTENSION)
     file = open(path, 'a')
     file.close()
+    print(path)
 
 def honey_excel(user_list:list):
     DEFAULT_FILENAME = ['Salary Information']
@@ -77,6 +78,7 @@ def honey_excel(user_list:list):
     path = os.path.join('C:', 'Users', user, 'Documents', DEFAULT_FILENAME + EXTENSION)
     file = open(path, 'a')
     file.close()
+    print(path)
 
 def honey_text(user_list:list):
     DEFAULT_FILENAME = ['passwords']
@@ -85,6 +87,7 @@ def honey_text(user_list:list):
     path = os.path.join('C:', 'Users', user, 'Documents', DEFAULT_FILENAME + EXTENSION)
     file = open(path, 'a')
     file.close()
+    print(path)
 
 def honey_word(user_list:list):
     DEFAULT_FILENAME = ['MSSP Contract 2022']
@@ -93,6 +96,7 @@ def honey_word(user_list:list):
     path = os.path.join('C:', 'Users', user, 'Documents', DEFAULT_FILENAME + EXTENSION)
     file = open(path, 'a')
     file.close()
+    print(path)
 
 def run():
     pass
