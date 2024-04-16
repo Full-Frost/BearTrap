@@ -18,7 +18,6 @@ class Inputs_class:
         self.hostname = []
         self.filenames = []
         self.fileextension = []
-        self.usernames = []
     
     def add_ip(self, IP):
         self.ipaddress.append(IP)
