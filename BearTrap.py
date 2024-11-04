@@ -13,6 +13,7 @@ ______               _____
                                   |_|    
 """)
 
+
 class Inputs_class:
     def __init__(self) -> None:
         self.ipaddress = []
